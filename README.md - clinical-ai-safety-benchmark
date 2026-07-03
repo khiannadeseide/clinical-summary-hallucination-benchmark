@@ -86,7 +86,7 @@ Clinical AI Safety Evaluation Rubric
 The standardized scoring framework used throughout the benchmark.
 
 examples/
-Representative synthetic benchmark cases illustrating common AI failure modes.
+Representative synthetic benchmark cases illustrating common AI failure modes. - IN PROGRESS
 
 docs/
 Project methodology, background, and development roadmap.
