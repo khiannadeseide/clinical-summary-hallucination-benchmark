@@ -1,0 +1,125 @@
+Findings
+
+Overview
+
+This document summarizes the primary observations from the initial Intent Preservation Benchmark v0.1.
+
+The benchmark evaluated twenty complex clinical discharge planning scenarios using Gemini 1.5 Flash to examine whether the model faithfully preserved human intent while transforming clinician discharge documentation into patient-facing instructions.
+
+Rather than reporting benchmark scores alone, this document highlights recurring patterns observed across multiple benchmark cases.
+
+
+
+Primary Findings
+
+1. Fluent Responses Do Not Always Preserve Human Intent
+
+Across the benchmark, the language model consistently generated responses that were clear, readable, and clinically plausible.
+
+However, fluency alone was not a reliable indicator of intent preservation. Several responses appeared correct while introducing subtle changes that altered the clinician's intended meaning.
+
+
+
+2. Human Intent Can Drift Without Obvious Errors
+
+Many benchmark cases demonstrated **clinical meaning drift**, where no single sentence appeared incorrect, but the overall message gradually shifted away from the original discharge documentation.
+
+These changes were often difficult to identify without directly comparing the generated output against the original source.
+
+
+
+3. Medication Information Represents a High-Risk Failure Mode
+
+Several benchmark cases demonstrated failures involving medication information.
+
+Observed examples included:
+
+Converting historical medications into active discharge prescriptions.
+Presenting previously completed treatments as ongoing therapy.
+Introducing unsupported medication recommendations.
+
+These failures represent one of the most significant safety concerns identified during the initial benchmark because they directly modify clinician intent.
+
+
+
+4. Plausible Hallucinations Are Difficult to Detect
+
+Rather than producing obviously incorrect responses, the model frequently generated clinically plausible information that was not supported by the original documentation.
+
+Examples included:
+
+Additional warning symptoms.
+Expanded follow-up recommendations.
+Unsupported recovery statements.
+New clinical explanations.
+
+Because these additions appeared reasonable, they could easily be mistaken for accurate medical guidance.
+
+
+
+5. Complexity Appears to Increase Failure Risk
+
+Benchmark observations suggest that failures became more common as clinical scenarios involved:
+
+Multiple chronic conditions.
+Long hospitalizations.
+Complex medication histories.
+Multiple transitions of care.
+Extensive rehabilitation planning.
+
+Although this benchmark was not designed to establish statistical significance, these observations suggest that increasing clinical complexity may place additional pressure on language model reasoning.
+
+
+
+Representative Failure Categories
+
+The most frequently observed failure patterns included:
+
+Information omission.
+Unsupported assumptions.
+Hallucinated clinical information.
+Medication inconsistencies.
+Clinical meaning drift.
+Logical reasoning failures.
+
+Detailed descriptions are provided in Failure_Taxonomy.md.
+
+
+
+Research Implications
+
+The benchmark suggests that evaluating factual correctness alone is insufficient for assessing AI reliability in high-stakes communication.
+
+A response may appear fluent, coherent, and clinically reasonable while still failing to preserve the original intent communicated by a human expert.
+
+These observations support the hypothesis that **intent preservation represents a distinct and measurable dimension of AI reliability** that deserves independent evaluation.
+
+
+
+Current Limitations
+
+These findings should be interpreted within the scope of the initial benchmark.
+
+Current limitations include:
+
+Twenty benchmark cases.
+Single language model evaluation.
+Manual reviewer assessment.
+Synthetic benchmark scenarios.
+
+Future benchmark releases will expand the dataset and evaluate additional frontier language models.
+
+
+
+Future Work
+
+Future work will focus on:
+
+Expanding the benchmark dataset.
+Evaluating multiple language models.
+Automating portions of the evaluation process.
+Refining the failure taxonomy.
+Developing quantitative reliability metrics.
+Validating the methodology with additional reviewers.
+
+The long-term goal is to develop reproducible evaluation infrastructure that enables researchers to measure intent preservation before deploying AI systems in safety-critical environments.
