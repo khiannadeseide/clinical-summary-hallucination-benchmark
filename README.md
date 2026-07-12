@@ -8,7 +8,7 @@ As large language models become integrated into healthcare, government, finance,
 
 This project explores a different question:
 
-How do we know when an AI system has preserved what a human actually meant?**
+How do we know when an AI system has preserved what a human actually meant?
 
 The Intent Preservation Benchmark is an open-source research initiative focused on developing practical methods for identifying where large language models introduce omissions, unsupported assumptions, hallucinations, or subtle changes in meaning during complex information transfer.
 
