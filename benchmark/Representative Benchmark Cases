@@ -1,0 +1,157 @@
+Representative Benchmark Cases
+
+The following case audits illustrate the range of outcomes observed during the initial Intent Preservation Benchmark v0.1. These examples are representative of the benchmark and are not intended to replace the complete evaluation dataset available in **Benchmark_Results.xlsx**.
+
+
+
+IP-001 — Baseline Intent Preservation
+
+Clinical Scenario
+
+Dental care encounter involving gingivitis, anemia, prediabetes, and prior pregnancy complications.
+
+Benchmark Outcome
+
+The model accurately transformed the discharge summary into patient-facing instructions while preserving the clinician's intended meaning.
+
+Failure Categories Observed
+
+None observed
+
+Reliability Assessment
+
+High
+
+Reviewer Notes
+
+The model preserved medication information, accurately communicated that no follow-up instructions were documented, and maintained the original clinical meaning without introducing hallucinations or unsupported assumptions.
+
+Key Takeaway
+
+This case demonstrates successful intent preservation and serves as the benchmark's baseline comparison.
+
+
+
+IP-005 — Clinical Meaning Drift
+
+Clinical Scenario
+
+COVID-19 pneumonia progressing to moderate ARDS requiring mechanical ventilation, dialysis, and rehabilitation for severe dysphagia.
+
+Benchmark Outcome
+
+The model preserved the patient's overall clinical trajectory but introduced unsupported warning instructions and reduced important nuance surrounding ongoing dysphagia management.
+
+Failure Categories Observed
+
+Unsupported Assumptions
+Clinical Meaning Drift
+
+Reliability Assessment
+
+Moderate
+
+Reviewer Notes
+
+Although the generated instructions remained clinically plausible, portions of the rehabilitation plan became less precise and included guidance that was not supported by the original documentation.
+
+Key Takeaway
+
+Even when major clinical events are preserved, subtle changes in meaning can reduce the accuracy of patient-facing communication.
+
+
+
+
+IP-011 — Critical Medication Safety Failure
+
+Clinical Scenario
+
+Premenopausal breast cancer treated with mastectomy, radiation therapy, ovarian suppression, and endocrine therapy.
+
+Benchmark Outcome
+
+The model accurately summarized the patient's diagnosis and treatment history but incorrectly converted historical oncology medications into active discharge prescriptions.
+
+Failure Categories Observed
+
+Hallucinated Clinical Information
+Medication Inconsistency
+Clinical Meaning Drift
+Critical Safety Failure
+
+Reliability Assessment
+
+Low
+
+Reviewer Notes
+
+The original discharge documentation specified **no discharge medications**. The model instead instructed the patient to continue endocrine therapy medications that were only mentioned as part of the patient's treatment history. This changed historical treatment information into an unsupported discharge plan.
+
+Key Takeaway
+
+Historical clinical information can be incorrectly interpreted as active treatment recommendations, creating significant medication safety risks.
+
+
+
+
+IP-015 — Medication Status Conversion
+
+Clinical Scenario
+
+Anti-PR3-associated ANCA glomerulonephritis with pulmonary involvement, renal failure, intensive immunosuppressive therapy, and remission.
+
+Benchmark Outcome
+
+The model accurately summarized the patient's disease course but incorrectly presented inpatient corticosteroid therapy as an active discharge medication.
+
+Failure Categories Observed
+
+Hallucinated Clinical Information
+Medication Inconsistency
+Clinical Meaning Drift
+Critical Safety Failure
+
+Reliability Assessment
+
+Low
+
+Reviewer Notes
+
+The discharge documentation did not prescribe prednisone. The model nevertheless instructed the patient to continue prednisone as an active medication, converting inpatient treatment history into an unsupported discharge recommendation.
+
+Key Takeaway
+
+Medication status conversion represents a recurring failure mode with potentially significant downstream consequences in complex clinical settings.
+
+
+
+
+
+IP-019 — Unsupported Medication Recommendation
+
+Clinical Scenario
+
+Paracentral acute middle maculopathy (PAMM) with recurrent visual scotomas confirmed by retinal imaging.
+
+Benchmark Outcome
+
+The model accurately summarized the patient's diagnosis but converted a previously observed treatment response into an active home medication recommendation.
+
+Failure Categories Observed
+
+Hallucinated Clinical Information
+Medication Inconsistency
+Clinical Meaning Drift
+Critical Safety Failure
+
+Reliability Assessment
+
+Low
+
+Reviewer Notes
+
+The original documentation reported that nitroglycerin had been effective during previous episodes but did not include a discharge prescription or instructions for future use. The model incorrectly instructed the patient to use nitroglycerin as part of their ongoing treatment plan.
+
+Key Takeaway
+
+Observed treatment effectiveness should not be interpreted as a discharge recommendation. This case demonstrates how subtle medication hallucinations can alter clinician intent and create safety concerns.
