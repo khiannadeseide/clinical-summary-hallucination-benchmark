@@ -1,0 +1,162 @@
+Intent Preservation Benchmark v0.1
+
+Overview
+
+The Intent Preservation Benchmark v0.1 is the first public release of an open-source benchmark designed to evaluate whether large language models faithfully preserve human intent during complex information transformation.
+
+Current AI benchmarks primarily measure capability, factual accuracy, or task completion. This benchmark focuses on a different dimension of AI reliability: whether a model preserves the original meaning intended by a human expert while transforming information into another format.
+
+Healthcare serves as the initial validation domain because clinical discharge planning provides measurable, high-stakes communication scenarios where preserving human intent is essential. Although the benchmark begins in healthcare, the underlying evaluation framework is intended to evolve into a reusable methodology for other safety-critical domains.
+
+
+
+Definition of Intent Preservation
+
+For the purposes of this benchmark, **intent preservation** refers to an AI system's ability to accurately retain the meaning, instructions, priorities, and context originally communicated by a human expert while transforming information into a different format.
+
+An AI system demonstrates intent preservation when it communicates the original message without introducing omissions, unsupported assumptions, hallucinated information, or unintended changes that alter the expert's intended meaning.
+
+Within this benchmark, preserving human intent is evaluated independently from fluency or readability. A response may be well-written and appear clinically reasonable while still failing to preserve human intent if it changes important instructions, removes critical information, or introduces content that was never provided.
+
+The central hypothesis of this benchmark is that **intent preservation is a distinct and measurable dimension of AI reliability** that complements existing evaluations of capability, factual accuracy, and task performance. By measuring intent preservation directly, researchers can better understand how language models behave in high-stakes environments where maintaining the integrity of human communication is essential.
+
+
+
+Benchmark Objective
+
+The objective of this benchmark is to provide a structured and reproducible framework for evaluating intent preservation in large language models.
+
+Rather than asking whether an AI response appears fluent or medically plausible, the benchmark evaluates whether the generated output remains faithful to the human expert's original intent while identifying where information is changed, omitted, or incorrectly introduced.
+
+This benchmark serves as the research foundation for the broader Intent Preservation Evaluation Platform.
+
+
+
+Benchmark Information
+
+Benchmark Name: Intent Preservation Benchmark
+
+Version: v0.1
+
+Status: Initial Public Release
+
+Validation Domain: Clinical Discharge Planning
+
+Number of Benchmark Cases: 20
+
+Primary Language Model Evaluated: Gemini 1.5 Flash
+
+Evaluation Method: Manual review using a standardized evaluation rubric
+
+
+Benchmark Design
+
+Version 0.1 consists of twenty independently evaluated clinical discharge planning scenarios designed to examine how well large language models preserve human intent when transforming clinician discharge documentation into patient-facing instructions.
+
+Each benchmark case includes:
+
+Original clinical discharge documentation
+AI-generated patient-facing instructions
+Standardized evaluation rubric
+Intent preservation assessment
+Reliability scoring
+Reviewer observations and notes
+
+Each case is evaluated using the same methodology to support consistency and reproducibility across the benchmark.
+
+
+Evaluation Framework
+
+The benchmark evaluates model performance across several dimensions of AI reliability.
+
+Current evaluation dimensions include:
+
+Information Fidelity
+Intent Preservation
+Logical Consistency
+Overall Reliability
+
+Detailed scoring criteria are documented in **Evaluation_Rubric.md**.
+
+
+
+Failure Categories
+
+During evaluation, benchmark cases are reviewed for recurring failure patterns observed during information transformation.
+
+Current failure categories include:
+
+Information omission
+Unsupported assumptions
+Hallucinated clinical details
+Medication inconsistencies
+Clinical meaning drift
+Logical reasoning failures
+Critical safety failures
+
+As additional benchmark cases are evaluated, these categories may expand to capture new and emerging failure patterns.
+
+Detailed definitions and examples are documented in **Failure_Taxonomy.md**.
+
+
+
+Current Scope
+
+Version 0.1 represents the initial public benchmark and establishes the project's first standardized evaluation methodology.
+
+The current benchmark is intended to validate the evaluation framework rather than provide comprehensive coverage of all clinical scenarios or language models.
+
+Future versions will expand the benchmark dataset, evaluate multiple frontier language models, incorporate expert review, and automate portions of the evaluation pipeline.
+
+
+
+Limitations
+
+Current limitations include:
+
+Initial benchmark of twenty cases
+Evaluation of a single language model
+Manual scoring methodology
+Synthetic benchmark scenarios
+No inter-rater reliability assessment
+
+These limitations reflect the current stage of development and provide a foundation for future benchmark expansion.
+
+
+
+Intended Use
+
+This benchmark is intended to support:
+
+AI safety research
+AI reliability evaluation
+Benchmark development
+Human-AI collaboration research
+Healthcare AI evaluation
+Large language model assessment
+
+The benchmark is intended as an open-source research resource and should not be used as a clinical decision-support system or interpreted as evidence of production readiness for any language model.
+
+
+
+Repository Resources
+
+README.md — Project overview
+Evaluation_Rubric.md — Standardized scoring framework
+Failure_Taxonomy.md — Definitions of observed failure categories
+Methodology.md — Research methodology and evaluation process
+Findings.md — Summary of benchmark observations
+Benchmark_Results.xlsx** — Complete benchmark evaluation results
+
+
+
+Version History
+
+Version 0.1
+
+Initial public benchmark release
+Twenty manually evaluated benchmark cases
+Standardized evaluation rubric
+Initial failure category documentation
+Manual benchmark evaluation methodology
+Public GitHub documentation
