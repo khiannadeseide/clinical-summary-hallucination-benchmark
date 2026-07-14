@@ -1,6 +1,8 @@
 Intent Preservation Platform
 Building open-source evaluation infrastructure that helps researchers determine how and where AI systems preserve—or fail to preserve—human intent before deployment in high-stakes environments.
 
+
+
 Overview
 As large language models become integrated into healthcare, government, finance, and other critical systems, evaluating reliability has become just as important as improving capability. While many existing benchmarks measure whether a model produces the correct answer, fewer evaluate whether it faithfully preserves the original intent behind human instructions.
 
@@ -86,6 +88,11 @@ prototype/
 project/
 ├── Project_Status.md
 └── Execution_Strategy.md
+
+
+
+
+
 
 
 
